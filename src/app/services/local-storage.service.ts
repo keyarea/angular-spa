@@ -4,7 +4,6 @@ const ls = localStorage;
 
 @Injectable()
 export class LocalStorageService {
-
   constructor() { }
 
   public get<T>(key: string): any {
@@ -13,12 +12,12 @@ export class LocalStorageService {
 
   public getList<T>(key: string) {
     const before = ls.getItem(key);
-    return before ? ( JSON.parse(before) as T[]) : [];
+    return before ? (JSON.parse(before) as T[]) : [];
   }
 
   public set(key: string, value: any): void {
-   if (!value || value === undefined) { return; }
-   const arr = JSON.stringify(value);
-   ls.setItem(key, arr);
+    if (!value && value === undefined) { return; }
+    const arr = JSON.stringify(value);
+    ls.setItem(key, arr);
   }
 }
