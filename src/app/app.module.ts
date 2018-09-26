@@ -11,11 +11,11 @@ import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 
 // Component
-import { LoginComponent } from './components/login/login.component';
 
 
 // Page
 import { AdminModule } from './pages/admin/admin.module';
+import { LoginModule } from './pages/login/login.module';
 
 // module
 import { AppRoutingModule} from './app-routing.module';
@@ -26,7 +26,6 @@ registerLocaleData(zh);
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +36,7 @@ registerLocaleData(zh);
     ReactiveFormsModule,
     AppRoutingModule,
     AdminModule,
+    LoginModule
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent]
