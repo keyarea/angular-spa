@@ -4,7 +4,7 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { LoginComponent } from './pages/login/login.component';
 
 const appRoutes: Routes = [
-  { path: 'admin', component: AdminComponent , pathMatch: 'full'},
+  { path: 'admin', redirectTo: '/admin' , pathMatch: 'full'},
   { path: 'login', component: LoginComponent , pathMatch: 'full'}
 ];
 
