@@ -1,6 +1,8 @@
 <div class="full-screen page-content">
   <div class="wrapper">
-    <img class="logo-img" src="./assets/img/logo.jpg" alt="">
+    <a routerLink="/" routerLinkActive="active">
+      <img class="logo-img" src="./assets/img/logo.jpg" alt="">
+    </a>
     <form nz-form [formGroup]="validateForm" (nzSubmit)="submitForm()"  class="loginForm">
       <nz-form-item>
         <nz-form-control>

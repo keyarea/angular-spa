@@ -4,7 +4,6 @@ import { AdminComponent } from './admin.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { FormsModule } from '@angular/forms';
-import { LoginComponent } from './login/login.component';
 
 @NgModule({
   imports: [
@@ -13,6 +12,6 @@ import { LoginComponent } from './login/login.component';
     NgZorroAntdModule,
     FormsModule
   ],
-  declarations: [AdminComponent, LoginComponent]
+  declarations: [AdminComponent]
 })
 export class AdminModule { }
