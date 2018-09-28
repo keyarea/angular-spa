@@ -6,11 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin.component.less']
 })
 export class AdminComponent implements OnInit {
+  dark = false;
   isCollapsed = false;
+  hide = true;
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+
+  toggleHide() {
+    this.hide = !this.hide;
   }
 
 }

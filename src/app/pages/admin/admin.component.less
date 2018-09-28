@@ -1,11 +1,37 @@
-.header {
-  background: #1976d2;
-  color: #fff;
+#header {
+  .logo {
+    width: 120px;
+    height: 31px;
+    background: rgba(255,255,255,.2);
+    margin: 16px 24px 16px 0;
+    float: left;
+  }
+
+  .nav-phone-icon {
+    display: none;
+    position: absolute;
+    right: 30px;
+    top: 25px;
+    z-index: 1;
+    width: 16px;
+    height: 22px;
+    cursor: pointer;
+  }
 }
-.sider {
-  margin-top: 64px;
+
+#middle {
+  #sider {
+    position: relative;
+  }
+
 }
-.footer {
-  text-align: center;
+
+@media screen and (max-width:768px) {
+  #sider {
+    position: fixed!important;
+  }
 }
+
+
+
 
