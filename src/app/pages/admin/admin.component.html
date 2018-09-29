@@ -1,52 +1,73 @@
 <nz-layout class="layout">
+
   <nz-header id="header">
-    <div class="logo"></div>
-    <ul nz-menu [nzTheme]="'dark'" [nzMode]="'horizontal'" style="line-height: 64px;">
-      <li nz-menu-item>nav 1</li>
-      <li nz-menu-item>nav 2</li>
-      <li nz-menu-item>nav 3</li>
+    <ul [nzTheme]="'light'" nz-menu class="header-menu" [nzMode]="'horizontal'">
+      <li nz-menu-item class="logo">
+        <a routerLink="/">
+          <img src="assets/img/logo.jpg">
+        </a>
+      </li>
+
+      <li nz-menu-item (click)="toggleCollapsed()" class="menu-icon">
+        <i class="anticon" [class.anticon-menu-unfold]="!isCollapsed" [class.anticon-menu-fold]="isCollapsed" style="height: 100%;width: 100%">
+        </i>
+      </li>
     </ul>
-    <i class="anticon anticon-menu nav-phone-icon"></i>
   </nz-header>
   <nz-layout id="middle">
-    <nz-sider id="sider" style="background:#fff;" nzCollapsible [(nzCollapsed)]="isCollapsed" [nzCollapsedWidth]="0" [nzBreakpoint]="'md'">
+    <nz-sider id="sider" style="background:#fff;" nzCollapsible [(nzCollapsed)]="isCollapsed" [nzCollapsedWidth]="0" [nzBreakpoint]="'md'" [nzTrigger]="null">
       <ul nz-menu [nzMode]="'inline'" style="height:100%">
         <li nz-submenu>
-          <span title><i class="anticon anticon-user"></i>subnav 1</span>
+          <span title><i class="anticon anticon-appstore-o"></i>课程管理</span>
           <ul>
-            <li nz-menu-item>option1</li>
-            <li nz-menu-item>option2</li>
-            <li nz-menu-item>option3</li>
-            <li nz-menu-item>option4</li>
+            <li nz-menu-item>课程审核</li>
+            <li nz-menu-item>正在进行的课程</li>
+            <li nz-menu-item>已结束的课程</li>
+          </ul>
+        </li>
+        <li nz-menu-item="">
+          <span title><i class="anticon anticon-user"></i>学生管理</span>
+        </li>
+        <li nz-submenu>
+          <span title><i class="anticon anticon-user"></i>教师管理</span>
+          <ul>
+            <li nz-menu-item>教师查看</li>
+            <li nz-menu-item>资格审核</li>
           </ul>
         </li>
         <li nz-submenu>
-          <span title><i class="anticon anticon-laptop"></i>subnav 2</span>
+          <span title><i class="anticon anticon-notification"></i>消息通知</span>
           <ul>
-            <li nz-menu-item>option5</li>
-            <li nz-menu-item>option6</li>
-            <li nz-menu-item>option7</li>
-            <li nz-menu-item>option8</li>
+            <li nz-menu-item>未处理消息</li>
+            <li nz-menu-item>已处理消息</li>
+            <li nz-menu-item>新增消息</li>
+            <li nz-menu-item>已发消息</li>
           </ul>
         </li>
         <li nz-submenu>
-          <span title><i class="anticon anticon-notification"></i>subnav 3</span>
+          <span title><i class="anticon anticon-pay-circle-o"></i>财务管理</span>
           <ul>
-            <li nz-menu-item>option9</li>
-            <li nz-menu-item>option10</li>
-            <li nz-menu-item>option11</li>
-            <li nz-menu-item>option12</li>
+            <li nz-menu-item>体现请求</li>
+            <li nz-menu-item>体现记录</li>
+            <li nz-menu-item>订单记录</li>
           </ul>
         </li>
       </ul>
     </nz-sider>
-    <nz-layout style="padding:0 24px 24px">
+    <nz-layout id="layoutContent">
       <nz-breadcrumb style="margin:16px 0;">
         <nz-breadcrumb-item>Home</nz-breadcrumb-item>
         <nz-breadcrumb-item>List</nz-breadcrumb-item>
         <nz-breadcrumb-item>App</nz-breadcrumb-item>
       </nz-breadcrumb>
-      <nz-content style="background:#fff; padding: 24px; min-height: 280px;">Content</nz-content>
+      <nz-content id="content">
+        content
+      </nz-content>
     </nz-layout>
+  </nz-layout>
+  <nz-layout>
+    <nz-footer>
+      footer
+    </nz-footer>
   </nz-layout>
 </nz-layout>

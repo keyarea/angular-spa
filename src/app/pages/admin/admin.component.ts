@@ -8,15 +8,16 @@ import { Component, OnInit } from '@angular/core';
 export class AdminComponent implements OnInit {
   dark = false;
   isCollapsed = false;
-  hide = true;
 
   constructor() { }
 
   ngOnInit() {}
 
 
-  toggleHide() {
-    this.hide = !this.hide;
+
+
+  toggleCollapsed() {
+    this.isCollapsed = !this.isCollapsed;
   }
 
 }
