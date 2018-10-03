@@ -20,13 +20,21 @@
         <li nz-submenu>
           <span title><i class="anticon anticon-appstore-o"></i>课程管理</span>
           <ul>
-            <li nz-menu-item>课程审核</li>
-            <li nz-menu-item>正在进行的课程</li>
-            <li nz-menu-item>已结束的课程</li>
+            <li nz-menu-item routerLink="/admin/course/audit" routerLinkActive="ant-menu-item ant-menu-item-selected">
+              课程审核
+            </li>
+            <li nz-menu-item routerLink="">
+              正在进行的课程
+            </li>
+            <li nz-menu-item>
+              已结束的课程
+            </li>
           </ul>
         </li>
-        <li nz-menu-item="">
-          <span title><i class="anticon anticon-user"></i>学生管理</span>
+        <li nz-menu-item>
+          <a routerLink="/admin/student">
+            <span title><i class="anticon anticon-user"></i>学生管理</span>
+          </a>
         </li>
         <li nz-submenu>
           <span title><i class="anticon anticon-user"></i>教师管理</span>
@@ -61,7 +69,7 @@
         <nz-breadcrumb-item>App</nz-breadcrumb-item>
       </nz-breadcrumb>
       <nz-content id="content">
-        content
+        <router-outlet></router-outlet>
       </nz-content>
     </nz-layout>
   </nz-layout>
