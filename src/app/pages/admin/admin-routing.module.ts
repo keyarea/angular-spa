@@ -40,6 +40,9 @@ import { WithdrawalRequestComponent } from './withdrawal-request/withdrawal-requ
 // 体现记录
 import { WithdrawalRecordComponent } from './withdrawal-record/withdrawal-record.component';
 
+// 订单记录
+import { OrderRecordComponent } from './order-record/order-record.component';
+
 const routes: Routes = [
   { path: 'admin' , component: AdminComponent, children:
       [
@@ -71,13 +74,16 @@ const routes: Routes = [
           path: 'message/new', component: NewMessagesComponent
         },
         {
-          path: 'message/sentmessages', component: SentMessagesComponent
+          path: 'message/sent', component: SentMessagesComponent
         },
         {
           path: 'withdrawal/request', component: WithdrawalRequestComponent
         },
         {
           path: 'withdrawal/record', component: WithdrawalRecordComponent
+        },
+        {
+          path: 'order/record', component: OrderRecordComponent
         }
       ]
   }

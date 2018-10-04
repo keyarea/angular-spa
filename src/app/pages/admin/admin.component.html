@@ -17,47 +17,45 @@
   <nz-layout id="middle">
     <nz-sider id="sider" style="background:#fff;" nzCollapsible [(nzCollapsed)]="isCollapsed" [nzCollapsedWidth]="0" [nzBreakpoint]="'md'" [nzTrigger]="null">
       <ul nz-menu [nzMode]="'inline'" style="height:100%">
-        <li nz-submenu>
+        <li nz-submenu [nzOpen]="courseIsOpen">
           <span title><i class="anticon anticon-appstore-o"></i>课程管理</span>
           <ul>
-            <li nz-menu-item routerLink="/admin/course/audit" routerLinkActive="ant-menu-item ant-menu-item-selected">
+            <li nz-menu-item routerLink="/admin/course/audit" routerLinkActive="ant-menu-item-selected">
               课程审核
             </li>
-            <li nz-menu-item routerLink="">
+            <li nz-menu-item routerLink="/admin/course/ongoing" routerLinkActive="ant-menu-item-selected">
               正在进行的课程
             </li>
-            <li nz-menu-item>
+            <li nz-menu-item routerLink="/admin/course/closed" routerLinkActive="ant-menu-item-selected">
               已结束的课程
             </li>
           </ul>
         </li>
-        <li nz-menu-item>
-          <a routerLink="/admin/student">
+        <li nz-menu-item routerLink="/admin/student" routerLinkActive="ant-menu-item-selected">
             <span title><i class="anticon anticon-user"></i>学生管理</span>
-          </a>
         </li>
-        <li nz-submenu>
+        <li nz-submenu [nzOpen]="teacherIsOpen">
           <span title><i class="anticon anticon-user"></i>教师管理</span>
           <ul>
-            <li nz-menu-item>教师查看</li>
-            <li nz-menu-item>资格审核</li>
+            <li nz-menu-item routerLink="/admin/teacher/info" routerLinkActive="ant-menu-item-selected">教师查看</li>
+            <li nz-menu-item routerLink="/admin/teacher/audit" routerLinkActive="ant-menu-item-selected">资格审核</li>
           </ul>
         </li>
-        <li nz-submenu>
+        <li nz-submenu [nzOpen]="messageIsOpen">
           <span title><i class="anticon anticon-notification"></i>消息通知</span>
           <ul>
-            <li nz-menu-item>未处理消息</li>
-            <li nz-menu-item>已处理消息</li>
-            <li nz-menu-item>新增消息</li>
-            <li nz-menu-item>已发消息</li>
+            <li nz-menu-item routerLink="/admin/message/unprocessed" routerLinkActive="ant-menu-item-selected">未处理消息</li>
+            <li nz-menu-item routerLink="/admin/message/processed" routerLinkActive="ant-menu-item-selected">已处理消息</li>
+            <li nz-menu-item routerLink="/admin/message/new" routerLinkActive="ant-menu-item-selected" >新增消息</li>
+            <li nz-menu-item routerLink="/admin/message/sent" routerLinkActive="ant-menu-item-selected" >已发消息</li>
           </ul>
         </li>
-        <li nz-submenu>
+        <li nz-submenu [nzOpen]="withdrawalIsOpen">
           <span title><i class="anticon anticon-pay-circle-o"></i>财务管理</span>
           <ul>
-            <li nz-menu-item>体现请求</li>
-            <li nz-menu-item>体现记录</li>
-            <li nz-menu-item>订单记录</li>
+            <li nz-menu-item routerLink="/admin/withdrawal/request" routerLinkActive="ant-menu-item-selected">体现请求</li>
+            <li nz-menu-item routerLink="/admin/withdrawal/record" routerLinkActive="ant-menu-item-selected">体现记录</li>
+            <li nz-menu-item routerLink="/admin/order/record" routerLinkActive="ant-menu-item-selected">订单记录</li>
           </ul>
         </li>
       </ul>
