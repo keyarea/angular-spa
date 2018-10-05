@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from '../admin.service';
 
 @Component({
   selector: 'app-sent-messages',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SentMessagesComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private adminServece: AdminService
+  ) {
+    this.adminServece.messageIsOpenChange(true);
+  }
 
   ngOnInit() {
   }

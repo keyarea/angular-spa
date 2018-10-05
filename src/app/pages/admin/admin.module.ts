@@ -18,6 +18,8 @@ import { WithdrawalRequestComponent } from './withdrawal-request/withdrawal-requ
 import { WithdrawalRecordComponent } from './withdrawal-record/withdrawal-record.component';
 import { OrderRecordComponent } from './order-record/order-record.component';
 
+import { AdminService } from './admin.service';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -25,6 +27,24 @@ import { OrderRecordComponent } from './order-record/order-record.component';
     NgZorroAntdModule,
     FormsModule
   ],
-  declarations: [AdminComponent, CourseAuditComponent, OngoingCoursesComponent, ClosedCoursesComponent, StudentManagementComponent, TeacherInfoComponent, TeacherAuditComponent, UnprocessedMessagesComponent, ProcessedMessagesComponent, NewMessagesComponent, SentMessagesComponent, WithdrawalRequestComponent, WithdrawalRecordComponent, OrderRecordComponent]
+  declarations: [
+    AdminComponent,
+    CourseAuditComponent,
+    OngoingCoursesComponent,
+    ClosedCoursesComponent,
+    StudentManagementComponent,
+    TeacherInfoComponent,
+    TeacherAuditComponent,
+    UnprocessedMessagesComponent,
+    ProcessedMessagesComponent,
+    NewMessagesComponent,
+    SentMessagesComponent,
+    WithdrawalRequestComponent,
+    WithdrawalRecordComponent,
+    OrderRecordComponent
+  ],
+  providers: [
+   AdminService
+  ]
 })
 export class AdminModule { }

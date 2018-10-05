@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from '../admin.service';
 
 @Component({
   selector: 'app-ongoing-courses',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OngoingCoursesComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private adminService: AdminService
+  ) {
+    this.adminService.courseIsOpenChange(true);
+  }
 
   ngOnInit() {
   }

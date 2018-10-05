@@ -5,9 +5,13 @@ import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 const appRoutes: Routes = [
-  { path: 'admin', redirectTo: '/admin' , pathMatch: 'full'},
-  { path: 'login', component: LoginComponent},
-  { path: '', redirectTo: '/index', pathMatch: 'full' },
+  // { path: 'admin', redirectTo: '/admin' , pathMatch: 'full'},
+  {
+    path: 'login', component: LoginComponent
+  },
+  {
+    path: '', redirectTo: '/index', pathMatch: 'full'
+  },
   {
     path: '**', component: NotFoundComponent
   }

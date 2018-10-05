@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from './admin.service';
 
 @Component({
   selector: 'app-admin',
@@ -13,7 +14,27 @@ export class AdminComponent implements OnInit {
   messageIsOpen = false; // 信息菜单是否展开
   withdrawalIsOpen = false; // 财务菜单是否展开
 
-  constructor() { }
+  constructor(
+    private adminService: AdminService
+  ) {
+
+    adminService.changeCourseIsOpen$.subscribe( courseIsOpen => {
+      this.courseIsOpen = <boolean>courseIsOpen;
+    });
+
+    adminService.changeTeacherIsOpen$.subscribe(teacherIsOpen => {
+      this.teacherIsOpen = <boolean>teacherIsOpen;
+    });
+
+    adminService.changeMessageIsOpen$.subscribe(messageIsOpen => {
+      this.messageIsOpen = <boolean>messageIsOpen;
+    });
+
+    adminService.changeWithdrawalIsOpen$.subscribe(withdrawalIsOpen => {
+      this.withdrawalIsOpen = <boolean>withdrawalIsOpen;
+    });
+
+  }
 
   ngOnInit() {}
 

@@ -36,11 +36,11 @@ registerLocaleData(zh);
     HttpClientModule,
     NgZorroAntdModule,
     ReactiveFormsModule,
-    AppRoutingModule,
     AdminModule,
     LoginModule,
     IndexModule,
-    NotFoundModule
+    NotFoundModule,
+    AppRoutingModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent]
