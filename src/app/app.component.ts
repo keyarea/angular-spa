@@ -10,5 +10,8 @@ import { HostBinding } from '@angular/core';
   animations: [ slideInDownAnimation ]
 })
 export class AppComponent {
+  width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
   title = 'myApp';
+  constructor() {}
+
 }

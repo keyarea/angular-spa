@@ -1,3 +1,48 @@
-<p>
-  course-audit works!
-</p>
+<nz-breadcrumb>
+  <nz-breadcrumb-item>
+    <a [routerLink]="['../../']">管理</a>
+  </nz-breadcrumb-item>
+  <nz-breadcrumb-item>
+    课程审核
+  </nz-breadcrumb-item>
+</nz-breadcrumb>
+<nz-table #basicTable [nzData]="classes"
+          [nzScroll]="{x:'768px'}"
+          [nzTitle]="tableTitle"
+          [nzHideOnSinglePage]="hideOnSinglePage"
+          [nzNoResult]="noResult"
+          [nzPageSize]="pageSize"
+          [nzPageIndex]="pageIndex"
+          [nzFrontPagination]="frontPagination"
+>
+  <thead>
+  <tr>
+    <th>课程名称</th>
+    <th>课时数</th>
+    <th>上课时间</th>
+    <th>上课人</th>
+    <th>课容量</th>
+    <th>购买价格</th>
+    <th>平台抽成</th>
+    <th>审核</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let class of classes">
+    <td>{{class.name}}</td>
+    <td>{{class.classNum}}</td>
+    <td>{{class.classTime}}</td>
+    <td>{{class.speaker}}</td>
+    <td>{{class.capacity}}</td>
+    <td>
+      <nz-input-number [(ngModel)]="class.price" [nzMin]="1" [nzMax]="100" [nzStep]="1" [nzFormatter]="formatterDollar" [nzParser]="parserDollar"></nz-input-number>
+    </td>
+    <td>
+      <nz-input-number [(ngModel)]="class.commission" [nzMin]="1" [nzMax]="100" [nzStep]="1" [nzFormatter]="formatterPercent" [nzParser]="parserPercent"></nz-input-number>
+    </td>
+    <td>
+      <button nz-button nzType="primary" nz-popconfirm nzTitle="是否审核通过该课程?" (nzOnConfirm)="auditPass()" (nzOnCancel)="auditCancel()" nzPlacement="topLeft">审核通过</button>
+    </td>
+  </tr>
+  </tbody>
+</nz-table>

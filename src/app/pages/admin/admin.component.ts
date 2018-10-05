@@ -7,8 +7,10 @@ import { AdminService } from './admin.service';
   styleUrls: ['./admin.component.less']
 })
 export class AdminComponent implements OnInit {
+  width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
   dark = false;
-  isCollapsed = false; // 菜单是否展开
+  // 菜单是否展开
+  isCollapsed = this.width > 768;
   courseIsOpen = false; // 课程菜单是否展开
   teacherIsOpen = false; // 老师菜单是否展开
   messageIsOpen = false; // 信息菜单是否展开
@@ -17,7 +19,6 @@ export class AdminComponent implements OnInit {
   constructor(
     private adminService: AdminService
   ) {
-
     adminService.changeCourseIsOpen$.subscribe( courseIsOpen => {
       this.courseIsOpen = <boolean>courseIsOpen;
     });
@@ -33,6 +34,10 @@ export class AdminComponent implements OnInit {
     adminService.changeWithdrawalIsOpen$.subscribe(withdrawalIsOpen => {
       this.withdrawalIsOpen = <boolean>withdrawalIsOpen;
     });
+
+    if(this.width === 768) {
+
+    }
 
   }
 
