@@ -1,3 +1,120 @@
-<p>
-  teacher-info works!
-</p>
+<nz-breadcrumb>
+  <nz-breadcrumb-item>
+    <a [routerLink]="['../../']">管理</a>
+  </nz-breadcrumb-item>
+  <nz-breadcrumb-item>
+    教师查看
+  </nz-breadcrumb-item>
+</nz-breadcrumb>
+<nz-divider></nz-divider>
+<div class="filter clearfix">
+  <div nz-row
+       [nzAlign]="'middle'"
+       [nzJustify]="'center'"
+       class="filter-row"
+
+  >
+    <div nz-col
+         nzSpan="3"
+         class="filter-col"
+         [nzMd]="2"
+         [nzSm]="4"
+         [nzXs]="5"
+    >地区：</div>
+    <div nz-col
+         nzSpan="21"
+         class="filter-col"
+         [nzMd]="22"
+         [nzSm]="20"
+         [nzXs]="19"
+    >
+      <nz-select style="width: 100%;" [(ngModel)]="selectedArea" (nzScrollToBottom)="loadMoreArea()" nzPlaceHolder="选择地区" nzAllowClear>
+        <nz-option *ngFor="let o of areaList" [nzValue]="o" [nzLabel]="o"></nz-option>
+        <nz-option *ngIf="areaIsLoading" nzDisabled nzCustomContent>
+          <i class="anticon anticon-loading anticon-spin loading-icon"></i> Loading Data...
+        </nz-option>
+      </nz-select>
+    </div>
+  </div>
+
+  <div nz-row [nzAlign]="'middle'" [nzJustify]="'center'" class="filter-row">
+    <div nz-col
+         nzSpan="3"
+         class="filter-col"
+         [nzMd]="2"
+         [nzSm]="4"
+         [nzXs]="5"
+    >科目：</div>
+    <div
+      nz-col
+      nzSpan="21"
+      class="filter-col"
+      [nzMd]="22"
+      [nzSm]="20"
+      [nzXs]="19"
+    >
+      <nz-select style="width: 100%;" [(ngModel)]="selectedSubject" (nzScrollToBottom)="loadMoreSubject()" nzPlaceHolder="选择科目" nzAllowClear>
+        <nz-option *ngFor="let o of subjectList" [nzValue]="o" [nzLabel]="o"></nz-option>
+        <nz-option *ngIf="subjectIsLoading" nzDisabled nzCustomContent>
+          <i class="anticon anticon-loading anticon-spin loading-icon"></i> Loading Data...
+        </nz-option>
+      </nz-select>
+    </div>
+  </div>
+
+  <div nz-row [nzAlign]="'middle'" [nzJustify]="'center'" class="filter-row">
+    <div
+      nz-col
+      nzSpan="3"
+      class="filter-col"
+      [nzMd]="2"
+      [nzSm]="4"
+      [nzXs]="5"
+    >年级：</div>
+    <div
+      nz-col
+      nzSpan="21"
+      class="filter-col"
+      [nzMd]="22"
+      [nzSm]="20"
+      [nzXs]="19"
+    >
+      <nz-select style="width: 100%;" [(ngModel)]="selectedGrade" (nzScrollToBottom)="loadMoreGrade()" nzPlaceHolder="选择年级" nzAllowClear>
+        <nz-option *ngFor="let o of gradeList" [nzValue]="o" [nzLabel]="o"></nz-option>
+        <nz-option *ngIf="gradeIsLoading" nzDisabled nzCustomContent>
+          <i class="anticon anticon-loading anticon-spin loading-icon"></i> Loading Data...
+        </nz-option>
+      </nz-select>
+    </div>
+  </div>
+</div>
+<nz-divider></nz-divider>
+
+<nz-table #basicTable [nzData]="classes"
+          [nzScroll]="{x:'768px'}"
+          [nzTitle]="tableTitle"
+          [nzHideOnSinglePage]="hideOnSinglePage"
+          [nzNoResult]="noResult"
+          [nzPageSize]="pageSize"
+          [nzPageIndex]="pageIndex"
+          [nzFrontPagination]="frontPagination"
+>
+  <thead>
+  <tr>
+    <th>课程名称</th>
+    <th>课时数</th>
+    <th>上课时间</th>
+    <th>上课人</th>
+    <th>课容量</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let class of classes">
+    <td>{{class.name}}</td>
+    <td>{{class.classNum}}</td>
+    <td>{{class.classTime}}</td>
+    <td>{{class.speaker}}</td>
+    <td>{{class.capacity}}</td>
+  </tr>
+  </tbody>
+</nz-table>

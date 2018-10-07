@@ -15,7 +15,7 @@
     </ul>
   </nz-header>
   <nz-layout id="middle">
-    <nz-sider id="sider" style="background:#fff;" nzCollapsible [(nzCollapsed)]="isCollapsed" [nzCollapsedWidth]="0" [nzBreakpoint]="'md'" [nzTrigger]="null">
+    <nz-sider id="sider" style="background:#fff;" nzCollapsible [(nzCollapsed)]="!isCollapsed" [nzCollapsedWidth]="0" [nzBreakpoint]="'md'" [nzTrigger]="null">
       <ul nz-menu [nzMode]="'inline'" style="height:100%">
         <li nz-submenu [nzOpen]="courseIsOpen">
           <span title><i class="anticon anticon-appstore-o"></i>课程管理</span>

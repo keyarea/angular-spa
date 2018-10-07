@@ -23,9 +23,9 @@ import { AdminService } from './admin.service';
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     AdminRoutingModule,
     NgZorroAntdModule,
-    FormsModule
   ],
   declarations: [
     AdminComponent,

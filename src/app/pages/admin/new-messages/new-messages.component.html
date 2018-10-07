@@ -1,3 +1,62 @@
-<p>
-  new-messages works!
-</p>
+<nz-breadcrumb>
+  <nz-breadcrumb-item>
+    <a [routerLink]="['../../']">管理</a>
+  </nz-breadcrumb-item>
+  <nz-breadcrumb-item>
+    新增消息
+  </nz-breadcrumb-item>
+</nz-breadcrumb>
+<nz-divider></nz-divider>
+
+
+<form nz-form (ngSubmit)="submitForm()" >
+  <nz-form-item style=" height: 40px;">
+    <nz-form-label
+      nzFor="mention"
+      style="text-align: center;line-height: 40px"
+      [nzMd]="2"
+      [nzSm]="4"
+      [nzXs]="5"
+    >收件人</nz-form-label>
+    <nz-form-control
+      [nzMd]="22"
+      [nzSm]="20"
+      [nzXs]="19"
+    >
+      <nz-mention
+        #mentions
+        [nzSuggestions]="suggestions">
+        <input id="mention" placeholder="input here"  nzMentionTrigger nz-input>
+      </nz-mention>
+      <nz-form-explain *ngIf="validateForm.get('mention').dirty && validateForm.get('mention').errors">
+        More than one must be selected!
+      </nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+  <nz-form-control [nzSm]="24">
+    <nz-mention
+      #mentions
+      [nzSuggestions]="suggestions">
+      <textarea nz-input
+                [nzAutosize]="{minRows: 4, maxRows: 10}"
+                [(ngModel)]="textareaValue"
+                nzMentionTrigger
+      > </textarea>
+    </nz-mention>
+    <nz-form-explain *ngIf="validateForm.get('mention').dirty && validateForm.get('mention').errors">
+      More than one must be selected!
+    </nz-form-explain>
+  </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item
+    nz-row
+    style="margin-bottom:8px;"
+  >
+    <nz-form-control [nzSpan]="4" [nzOffset]="20">
+      <button type="button" nz-button nzType="primary" (click)="submitForm()">发送</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>

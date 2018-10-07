@@ -6,11 +6,29 @@
     正在进行的课程
   </nz-breadcrumb-item>
 </nz-breadcrumb>
+<nz-divider></nz-divider>
 
-<div class="filter">
-  <div nz-row [nzAlign]="'middle'" [nzJustify]="'center'" class="filter-row">
-    <div nz-col nzSpan="4" class="filter-col">地区：</div>
-    <div nz-col nzSpan="20" class="filter-col">
+<div class="filter clearfix">
+  <div nz-row
+       [nzAlign]="'middle'"
+       [nzJustify]="'center'"
+       class="filter-row"
+
+  >
+    <div nz-col
+         nzSpan="3"
+         class="filter-col"
+         [nzMd]="2"
+         [nzSm]="4"
+         [nzXs]="5"
+    >地区：</div>
+    <div nz-col
+         nzSpan="21"
+         class="filter-col"
+         [nzMd]="22"
+         [nzSm]="20"
+         [nzXs]="19"
+    >
       <nz-select style="width: 100%;" [(ngModel)]="selectedArea" (nzScrollToBottom)="loadMoreArea()" nzPlaceHolder="选择地区" nzAllowClear>
         <nz-option *ngFor="let o of areaList" [nzValue]="o" [nzLabel]="o"></nz-option>
         <nz-option *ngIf="areaIsLoading" nzDisabled nzCustomContent>
@@ -21,8 +39,21 @@
   </div>
 
   <div nz-row [nzAlign]="'middle'" [nzJustify]="'center'" class="filter-row">
-    <div nz-col nzSpan="4" class="filter-col">科目：</div>
-    <div nz-col nzSpan="20" class="filter-col">
+    <div nz-col
+         nzSpan="3"
+         class="filter-col"
+         [nzMd]="2"
+         [nzSm]="4"
+         [nzXs]="5"
+    >科目：</div>
+    <div
+      nz-col
+      nzSpan="21"
+      class="filter-col"
+      [nzMd]="22"
+      [nzSm]="20"
+      [nzXs]="19"
+    >
       <nz-select style="width: 100%;" [(ngModel)]="selectedSubject" (nzScrollToBottom)="loadMoreSubject()" nzPlaceHolder="选择科目" nzAllowClear>
         <nz-option *ngFor="let o of subjectList" [nzValue]="o" [nzLabel]="o"></nz-option>
         <nz-option *ngIf="subjectIsLoading" nzDisabled nzCustomContent>
@@ -33,8 +64,22 @@
   </div>
 
   <div nz-row [nzAlign]="'middle'" [nzJustify]="'center'" class="filter-row">
-    <div nz-col nzSpan="4" class="filter-col">年级：</div>
-    <div nz-col nzSpan="20" class="filter-col">
+    <div
+      nz-col
+      nzSpan="3"
+      class="filter-col"
+      [nzMd]="2"
+      [nzSm]="4"
+      [nzXs]="5"
+    >年级：</div>
+    <div
+      nz-col
+      nzSpan="21"
+      class="filter-col"
+      [nzMd]="22"
+      [nzSm]="20"
+      [nzXs]="19"
+    >
       <nz-select style="width: 100%;" [(ngModel)]="selectedGrade" (nzScrollToBottom)="loadMoreGrade()" nzPlaceHolder="选择年级" nzAllowClear>
         <nz-option *ngFor="let o of gradeList" [nzValue]="o" [nzLabel]="o"></nz-option>
         <nz-option *ngIf="gradeIsLoading" nzDisabled nzCustomContent>
@@ -45,9 +90,63 @@
   </div>
 </div>
 
-<nz-card style="width:300px;" [nzCover]="coverTemplate" [nzActions]="[actionSetting,actionEdit,actionEllipsis]">
-  <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate"></nz-card-meta>
-</nz-card>
+<nz-divider></nz-divider>
+<div nz-row>
+  <nz-card style="width:300px;margin: 20px;"
+           nz-col
+           nzSpan="6"
+           [nzCover]="coverTemplate"
+           [nzActions]="[actionSetting,actionEdit,actionEllipsis]"
+           [nzBordered]="bordered"
+           [nzHoverable]="hoverable"
+           [nzLoading]="loading"
+           [nzType]="'inner'"
+  >
+    <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate"></nz-card-meta>
+  </nz-card>
+  <nz-card
+    style="width:300px;margin: 20px;"
+    nz-col
+    nzSpan="6"
+    [nzCover]="coverTemplate"
+    [nzActions]="[actionSetting,actionEdit,actionEllipsis]"
+    [nzBordered]="bordered"
+    [nzHoverable]="hoverable"
+    [nzLoading]="loading"
+    [nzType]="'inner'"
+  >
+    <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate"></nz-card-meta>
+  </nz-card>
+
+  <nz-card
+    style="width:300px;margin: 20px;"
+    nz-col
+    nzSpan="8"
+    [nzCover]="coverTemplate"
+    [nzActions]="[actionSetting,actionEdit,actionEllipsis]"
+    [nzBordered]="bordered"
+    [nzHoverable]="hoverable"
+    [nzLoading]="loading"
+    [nzType]="'inner'"
+  >
+    <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate"></nz-card-meta>
+  </nz-card>
+
+  <nz-card
+    style="width:300px;margin: 20px;"
+    nz-col
+    nzSpan="8"
+    [nzCover]="coverTemplate"
+    [nzActions]="[actionSetting,actionEdit,actionEllipsis]"
+    [nzBordered]="bordered"
+    [nzHoverable]="hoverable"
+    [nzLoading]="loading"
+    [nzType]="'inner'"
+  >
+    <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate"></nz-card-meta>
+  </nz-card>
+</div>
+
 <ng-template #avatarTemplate>
   <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
 </ng-template>

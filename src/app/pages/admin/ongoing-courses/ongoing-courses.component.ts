@@ -7,6 +7,9 @@ import { AdminService } from '../admin.service';
   styleUrls: ['./ongoing-courses.component.less']
 })
 export class OngoingCoursesComponent implements OnInit {
+  bordered = false; // 默认值为true，是否有边框
+  hoverable = true; // 默认值为false,鼠标移过是否可以浮起
+  loading = true; // 默认值false，当卡片内容还在加载中时，可以用 loading 展示一个占位
   areaIsLoading;
   subjectIsLoading;
   gradeIsLoading;

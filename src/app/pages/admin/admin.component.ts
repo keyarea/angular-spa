@@ -35,9 +35,6 @@ export class AdminComponent implements OnInit {
       this.withdrawalIsOpen = <boolean>withdrawalIsOpen;
     });
 
-    if(this.width === 768) {
-
-    }
 
   }
 
