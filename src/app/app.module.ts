@@ -22,12 +22,16 @@ import { NotFoundModule } from './pages/not-found/not-found.module';
 // module
 import { AppRoutingModule} from './app-routing.module';
 
+// pipe
+import { SwitchPipe } from './pipes/switch.pipe';
+
+
 registerLocaleData(zh);
 
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

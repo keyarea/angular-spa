@@ -9,7 +9,7 @@
 <nz-divider></nz-divider>
 
 
-<form nz-form (ngSubmit)="submitForm()" >
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()" >
   <nz-form-item style=" height: 40px;">
     <nz-form-label
       nzFor="mention"
@@ -29,26 +29,23 @@
         <input id="mention" placeholder="input here"  nzMentionTrigger nz-input>
       </nz-mention>
       <nz-form-explain *ngIf="validateForm.get('mention').dirty && validateForm.get('mention').errors">
-        More than one must be selected!
+        至少选择一个
       </nz-form-explain>
     </nz-form-control>
   </nz-form-item>
 
   <nz-form-item>
-  <nz-form-control [nzSm]="24">
-    <nz-mention
-      #mentions
-      [nzSuggestions]="suggestions">
+    <nz-form-control>
       <textarea nz-input
                 [nzAutosize]="{minRows: 4, maxRows: 10}"
-                [(ngModel)]="textareaValue"
                 nzMentionTrigger
+                formControlName="message"
       > </textarea>
-    </nz-mention>
-    <nz-form-explain *ngIf="validateForm.get('mention').dirty && validateForm.get('mention').errors">
-      More than one must be selected!
-    </nz-form-explain>
-  </nz-form-control>
+      <nz-form-explain *ngIf="validateForm.get('message').dirty && validateForm.get('message').errors">
+        More than one must be selected!
+      </nz-form-explain>
+
+    </nz-form-control>
   </nz-form-item>
 
   <nz-form-item

@@ -14,7 +14,6 @@ import {
   styleUrls: ['./new-messages.component.css']
 })
 export class NewMessagesComponent implements OnInit {
-  textareaValue;
   suggestions = ['afc163', 'benjycui', 'yiminghe', 'RaoHai', '中文', 'にほんご'];
   validateForm: FormGroup;
   @ViewChild('mentions') mentionChild;
@@ -30,7 +29,8 @@ export class NewMessagesComponent implements OnInit {
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
-      mention: [ '@afc163 ', [ Validators.required, this.mentionValidator ] ]
+      mention: [ '@afc163 ', [ Validators.required, this.mentionValidator ] ],
+      message: [ null, [ Validators.required ] ]
     });
   }
 

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AdminComponent } from './admin.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CourseAuditComponent } from './course-audit/course-audit.component';
 import { OngoingCoursesComponent } from './ongoing-courses/ongoing-courses.component';
 import { ClosedCoursesComponent } from './closed-courses/closed-courses.component';
@@ -20,14 +20,18 @@ import { OrderRecordComponent } from './order-record/order-record.component';
 
 import { AdminService } from './admin.service';
 
+import { SwitchPipe } from '../../pipes/switch.pipe';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     AdminRoutingModule,
-    NgZorroAntdModule,
+    NgZorroAntdModule
   ],
   declarations: [
+    SwitchPipe,
     AdminComponent,
     CourseAuditComponent,
     OngoingCoursesComponent,
