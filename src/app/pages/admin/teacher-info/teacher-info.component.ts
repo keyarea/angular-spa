@@ -8,15 +8,10 @@ import { AdminService } from '../admin.service';
 })
 export class TeacherInfoComponent implements OnInit {
   areaIsLoading;
-  subjectIsLoading;
   gradeIsLoading;
   selectedArea;
-  selectedSubject;
   selectedGrade;
-  subjectList = [
-    '语文',
-    '数学'
-  ];
+
   areaList = [
     '东营',
     '青岛'
@@ -32,39 +27,28 @@ export class TeacherInfoComponent implements OnInit {
   pageIndex; // 当前页码
   frontPagination = true; // 是否在前端对数据进行分页，如果在服务器分页数据或者需要在前端显示全部数据时传入 false
 
-  classes = [
+  teachers = [
     {
       id    : '1',
-      name   : '概率论',
-      classNum : 2,
-      classTime: '2018-10-12 20:27:02',
-      speaker: '张三',
-      capacity: 1,
-      price: 20,
-      commission: 16,
+      name   : '张三',
+      area : '东营',
+      device : false,
       audit: false
     },
     {
       id    : '2',
-      name   : '高等数学',
-      classNum : 2,
-      classTime: '2018-10-12 20:27:02',
-      speaker: '张三',
-      capacity: 2,
-      price: 20,
-      commission: 12,
+      name   : '李四',
+      area : '东营',
+      device : false,
       audit: false
     },
     {
       id    : '3',
-      name   : '数理统计',
-      classNum : 2,
-      classTime: '2018-10-12 20:27:02',
-      speaker: '张三',
-      capacity: 1,
-      price: 20,
-      commission: 12,
-      audit: false
+      name   : '王五',
+      area : '东营',
+      device : true,
+      audit: true,
+      orderNumber: '123432'
     }
   ];
 
