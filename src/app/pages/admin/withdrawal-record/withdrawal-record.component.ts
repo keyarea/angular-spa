@@ -14,40 +14,31 @@ export class WithdrawalRecordComponent implements OnInit {
   pageIndex; // 当前页码
   frontPagination = true; // 是否在前端对数据进行分页，如果在服务器分页数据或者需要在前端显示全部数据时传入 false
 
-  classes = [
+  records = [
     {
       id    : '1',
-      name   : '概率论',
-      classNum : 2,
-      classTime: '2018-10-12 20:27:02',
-      speaker: '张三',
-      capacity: 1,
-      price: 20,
-      commission: 16,
-      audit: false
+      time: '2018/01/01 18:00',
+      money: 20,
+      QrCode: '',
+      status: false,
+      initiator: '张三'
     },
     {
-      id    : '2',
-      name   : '高等数学',
-      classNum : 2,
-      classTime: '2018-10-12 20:27:02',
-      speaker: '张三',
-      capacity: 2,
-      price: 20,
-      commission: 12,
-      audit: false
+      id    : '1',
+      time: '2018/01/01 18:00',
+      money: 20,
+      QrCode: '',
+      status: false,
+      initiator: '张三'
     },
     {
-      id    : '3',
-      name   : '数理统计',
-      classNum : 2,
-      classTime: '2018-10-12 20:27:02',
-      speaker: '张三',
-      capacity: 1,
-      price: 20,
-      commission: 12,
-      audit: false
-    }
+      id    : '1',
+      time: '2018/01/01 18:00',
+      money: 20,
+      QrCode: '',
+      status: false,
+      initiator: '张三'
+    },
   ];
 
   constructor(

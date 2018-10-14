@@ -7,7 +7,7 @@
   </nz-breadcrumb-item>
 </nz-breadcrumb>
 <nz-divider></nz-divider>
-<nz-table #basicTable [nzData]="classes"
+<nz-table #basicTable [nzData]="orders"
           [nzScroll]="{x:'768px'}"
           [nzTitle]="tableTitle"
           [nzHideOnSinglePage]="hideOnSinglePage"
@@ -19,19 +19,19 @@
   <thead>
   <tr>
     <th>课程名称</th>
-    <th>课时数</th>
-    <th>上课时间</th>
-    <th>上课人</th>
-    <th>课容量</th>
+    <th>购买学生</th>
+    <th>支付价格</th>
+    <th>平台抽成</th>
+    <th>时间</th>
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let class of classes">
-    <td>{{class.name}}</td>
-    <td>{{class.classNum}}</td>
-    <td>{{class.classTime}}</td>
-    <td>{{class.speaker}}</td>
-    <td>{{class.capacity}}</td>
+  <tr *ngFor="let order of orders">
+    <td>{{order?.name}}</td>
+    <td>{{order?.buyer}}</td>
+    <td>{{order?.price}}</td>
+    <td>{{order?.commission}}</td>
+    <td>{{order?.time}}</td>
   </tr>
   </tbody>
 </nz-table>

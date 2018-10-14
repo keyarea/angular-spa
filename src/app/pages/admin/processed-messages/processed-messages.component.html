@@ -7,7 +7,7 @@
   </nz-breadcrumb-item>
 </nz-breadcrumb>
 <nz-divider></nz-divider>
-<nz-table #basicTable [nzData]="classes"
+<nz-table #basicTable [nzData]="messages"
           [nzScroll]="{x:'768px'}"
           [nzTitle]="tableTitle"
           [nzHideOnSinglePage]="hideOnSinglePage"
@@ -18,20 +18,22 @@
 >
   <thead>
   <tr>
-    <th>课程名称</th>
-    <th>课时数</th>
-    <th>上课时间</th>
-    <th>上课人</th>
-    <th>课容量</th>
+    <th nzShowCheckbox nzShowRowSelection [nzSelections]="listOfSelection" [(nzChecked)]="allChecked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="checkAll($event)"></th>
+    <th>消息类型</th>
+    <th>发信人</th>
+    <th>内容概览</th>
+    <th>时间</th>
+    <th>消息状态</th>
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let class of classes">
-    <td>{{class.name}}</td>
-    <td>{{class.classNum}}</td>
-    <td>{{class.classTime}}</td>
-    <td>{{class.speaker}}</td>
-    <td>{{class.capacity}}</td>
+  <tr *ngFor="let message of messages">
+    <td nzShowCheckbox [(nzChecked)]="message.checked" (nzCheckedChange)="refreshStatus()"></td>
+    <td>{{message.type}}</td>
+    <td>{{message.sender}}</td>
+    <td>{{message.content}}</td>
+    <td>{{message.time}}</td>
+    <td>{{message.statue | switch}}</td>
   </tr>
   </tbody>
 </nz-table>
