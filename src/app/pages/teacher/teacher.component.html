@@ -1,3 +1,94 @@
-<p>
-  teacher works!
-</p>
+<nz-layout class="layout">
+
+  <nz-header id="header">
+    <ul [nzTheme]="'light'" nz-menu class="header-menu" [nzMode]="'horizontal'">
+      <li nz-menu-item class="logo">
+        <a routerLink="/">
+          <img src="assets/img/logo.jpg">
+        </a>
+      </li>
+
+      <li nz-menu-item (click)="toggleCollapsed()" class="menu-icon">
+        <i class="anticon" [class.anticon-menu-unfold]="!isCollapsed" [class.anticon-menu-fold]="isCollapsed" style="height: 100%;width: 100%">
+        </i>
+      </li>
+    </ul>
+  </nz-header>
+  <nz-layout id="middle">
+    <nz-sider id="sider" style="background:#fff;" nzCollapsible [(nzCollapsed)]="!isCollapsed" [nzCollapsedWidth]="0" [nzBreakpoint]="'md'" [nzTrigger]="null">
+      <ul nz-menu [nzMode]="'inline'" style="height:100%">
+        <li nz-submenu [nzOpen]="courseIsOpen">
+          <span title><i class="anticon anticon-appstore-o"></i>我的课程</span>
+          <ul>
+            <li nz-menu-item routerLink="/teacher/courses/ongoing" routerLinkActive="ant-menu-item-selected">
+              正在进行的课程
+            </li>
+            <li nz-menu-item routerLink="/teacher/courses/closed" routerLinkActive="ant-menu-item-selected">
+              已结束的课程
+            </li>
+            <li nz-menu-item routerLink="/teacher/courses/info" routerLinkActive="ant-menu-item-selected">
+              上课信息
+            </li>
+          </ul>
+        </li>
+        <li nz-menu-item routerLink="/teacher/order" routerLinkActive="ant-menu-item-selected">
+          <span title><i class="anticon anticon-profile"></i>我的订单</span>
+        </li>
+        <li nz-submenu [nzOpen]="manageIsOpen">
+          <span title><i class="anticon anticon-appstore-o"></i>课程管理</span>
+          <ul>
+            <li nz-menu-item routerLink="/teacher/courses/publish" routerLinkActive="ant-menu-item-selected">
+              发布课程
+            </li>
+            <li nz-menu-item routerLink="/teacher/courses/record" routerLinkActive="ant-menu-item-selected">
+              发布记录
+            </li>
+            <li nz-menu-item routerLink="/teacher/courses/shelved" routerLinkActive="ant-menu-item-selected">
+              已上架课程
+            </li>
+          </ul>
+        </li>
+        <li nz-submenu [nzOpen]="financeIsOpen">
+          <span title><i class="anticon anticon-pay-circle-o"></i>财务信息</span>
+          <ul>
+            <li nz-menu-item routerLink="/teacher/finance/income" routerLinkActive="ant-menu-item-selected">
+              总课时收入
+            </li>
+            <li nz-menu-item routerLink="/teacher/finance/record" routerLinkActive="ant-menu-item-selected">
+              提现记录
+            </li>
+          </ul>
+        </li>
+        <li nz-submenu [nzOpen]="meIsOpen">
+          <span title><i class="anticon anticon-info-circle-o"></i>我的信息</span>
+          <ul>
+            <li nz-menu-item routerLink="/teacher/me/index" routerLinkActive="ant-menu-item-selected">
+              我的首页
+            </li>
+            <li nz-menu-item routerLink="/teacher/me/audit" routerLinkActive="ant-menu-item-selected">
+              资格验证
+            </li>
+            <li nz-menu-item routerLink="/teacher/me/other" routerLinkActive="ant-menu-item-selected">
+              其他
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nz-sider>
+    <nz-layout id="layoutContent">
+      <nz-breadcrumb style="margin:16px 0;">
+        <nz-breadcrumb-item>Home</nz-breadcrumb-item>
+        <nz-breadcrumb-item>List</nz-breadcrumb-item>
+        <nz-breadcrumb-item>App</nz-breadcrumb-item>
+      </nz-breadcrumb>
+      <nz-content id="content">
+        <router-outlet></router-outlet>
+      </nz-content>
+    </nz-layout>
+  </nz-layout>
+  <nz-layout>
+    <nz-footer>
+      footer
+    </nz-footer>
+  </nz-layout>
+</nz-layout>
