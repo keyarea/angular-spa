@@ -1,3 +1,37 @@
-<p>
-  finance-record works!
-</p>
+<nz-breadcrumb>
+  <nz-breadcrumb-item>
+    <a [routerLink]="['../../']">首页</a>
+  </nz-breadcrumb-item>
+  <nz-breadcrumb-item>
+    提现记录
+  </nz-breadcrumb-item>
+</nz-breadcrumb>
+
+<nz-divider></nz-divider>
+
+<nz-table #basicTable [nzData]="classes"
+          [nzScroll]="{x:'768px'}"
+          [nzTitle]="tableTitle"
+          [nzHideOnSinglePage]="hideOnSinglePage"
+          [nzNoResult]="noResult"
+          [nzPageSize]="pageSize"
+          [nzPageIndex]="pageIndex"
+          [nzFrontPagination]="frontPagination"
+>
+  <thead>
+  <tr>
+    <th>序号</th>
+    <th>提现金额</th>
+    <th>提现时间</th>
+    <th>状态</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let class of classes">
+    <td>{{class?.name}}</td>
+    <td>{{class?.capacity}}</td>
+    <td>{{class?.endClassNum}}/{{class?.classNum}}</td>
+    <td>{{class?.classTime}}</td>
+  </tr>
+  </tbody>
+</nz-table>

@@ -1,3 +1,82 @@
-<p>
-  courses-publish works!
-</p>
+<nz-breadcrumb>
+  <nz-breadcrumb-item>
+    <a [routerLink]="['../../']">首页</a>
+  </nz-breadcrumb-item>
+  <nz-breadcrumb-item>
+    课程发布
+  </nz-breadcrumb-item>
+</nz-breadcrumb>
+
+<nz-divider></nz-divider>
+
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm($event,validateForm.value)">
+  <nz-form-item style="height: 40px">
+    <nz-form-label style="line-height: 40px;text-align: center" [nzSpan]="3" [nzXs]="6" [nzSm]="4" [nzMd]="4" [nzLg]="3" nzRequired>课程名称</nz-form-label>
+    <nz-form-control style="line-height: 40px;text-align: center" [nzSpan]="21" [nzXs]="18" [nzSm]="20" [nzMd]="20" [nzLg]="21" nzHasFeedback>
+      <input nz-input formControlName="userName" placeholder="请输入课程名称">
+      <nz-form-explain *ngIf="validateForm.get('userName').dirty && validateForm.get('userName').errors || validateForm.get('userName').pending ">
+        <ng-container *ngIf="validateForm.get('userName').hasError('required')">
+          课程名称不能为空
+        </ng-container>
+        <ng-container *ngIf="validateForm.get('userName').hasError('duplicated')">
+          The username is redundant!
+        </ng-container>
+        <ng-container *ngIf="validateForm.get('userName').pending">
+          Validating...
+        </ng-container>
+      </nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item style="height: 40px">
+    <nz-form-label style="line-height: 40px;text-align: center" [nzSpan]="3" [nzXs]="6" [nzSm]="4" [nzMd]="4" [nzLg]="3"  nzRequired>年级</nz-form-label>
+    <nz-form-control style="line-height: 40px;text-align: center" [nzSpan]="21" [nzXs]="18" [nzSm]="20" [nzMd]="20" [nzLg]="21"  nzHasFeedback>
+      <nz-select name="select-error" formControlName="email">
+        <nz-option nzValue="Option 1" nzLabel="Option 1"></nz-option>
+        <nz-option nzValue="Option 2" nzLabel="Option 2"></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item  style="height: 40px">
+    <nz-form-label style="line-height: 40px;text-align: center" [nzSpan]="3" [nzXs]="6" [nzSm]="4" [nzMd]="4" [nzLg]="3"   nzRequired>科目</nz-form-label>
+      <nz-form-control style="line-height: 40px;text-align: center" [nzSpan]="21" [nzXs]="18" [nzSm]="20" [nzMd]="20" [nzLg]="21"  nzHasFeedback>
+        <nz-select name="select-error" formControlName="password">
+          <nz-option nzValue="Option 1" nzLabel="Option 1"></nz-option>
+          <nz-option nzValue="Option 2" nzLabel="Option 2"></nz-option>
+        </nz-select>
+      </nz-form-control>
+  </nz-form-item>
+  <nz-form-item style="height: 40px">
+    <nz-form-label style="line-height: 40px;text-align: center" [nzSpan]="3" [nzXs]="6" [nzSm]="4" [nzMd]="4" [nzLg]="3"  nzRequired>课容量</nz-form-label>
+    <nz-form-control style="line-height: 40px;" [nzSpan]="21" [nzXs]="18" [nzSm]="20" [nzMd]="20" [nzLg]="21"  nzHasFeedback>
+      <nz-input-number formControlName="confirm" [nzMin]="1" [nzMax]="8" [nzStep]="1"></nz-input-number>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item style="height: 40px">
+    <nz-form-label style="line-height: 40px;text-align: center" [nzSpan]="3" [nzXs]="6" [nzSm]="4" [nzMd]="4" [nzLg]="3"  nzRequired>课时量</nz-form-label>
+    <nz-form-control style="line-height: 40px;" [nzSpan]="21" [nzXs]="18" [nzSm]="20" [nzMd]="20" [nzLg]="21"  >
+      <nz-input-number formControlName="comment" [nzMin]="1" [nzMax]="8" [nzStep]="1"></nz-input-number>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item style="height: 40px">
+    <nz-form-label style="line-height: 40px;text-align: center" [nzSpan]="3" [nzXs]="6" [nzSm]="4" [nzMd]="4" [nzLg]="3"  nzRequired>上课时间</nz-form-label>
+    <nz-form-control style="line-height: 40px;" [nzSpan]="21" [nzXs]="18" [nzSm]="20" [nzMd]="20" [nzLg]="21" >
+      <nz-date-picker
+        nzShowTime
+        nzFormat="yyyy-MM-dd HH:mm:ss"
+        nzPlaceHolder="选择时间"
+      ></nz-date-picker>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item style="height: 40px">
+    <nz-form-label style="line-height: 40px;text-align: center" [nzSpan]="3" [nzXs]="6" [nzSm]="4" [nzMd]="4" [nzLg]="3"  nzRequired>价格/课时</nz-form-label>
+    <nz-form-control style="line-height: 40px;" [nzSpan]="21" [nzXs]="18" [nzSm]="20" [nzMd]="20" [nzLg]="21" >
+      <nz-input-number placeholder="等待审核" [nzDisabled]="true" [nzPlaceHolder]="'等待审核'" [nzStep]="1"></nz-input-number>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control [nzOffset]="7" [nzSpan]="12">
+      <button nz-button nzType="primary" [disabled]="!validateForm.valid">提交审核</button>
+      <button nz-button (click)="resetForm($event)">重置表单</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>

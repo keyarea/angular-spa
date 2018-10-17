@@ -1,3 +1,47 @@
-<p>
-  courses-shelved works!
-</p>
+<nz-breadcrumb>
+  <nz-breadcrumb-item>
+    <a [routerLink]="['../../']">首页</a>
+  </nz-breadcrumb-item>
+  <nz-breadcrumb-item>
+    已上架课程
+  </nz-breadcrumb-item>
+</nz-breadcrumb>
+
+<nz-divider></nz-divider>
+
+<nz-table #basicTable [nzData]="classes"
+          [nzScroll]="{x:'768px'}"
+          [nzTitle]="tableTitle"
+          [nzHideOnSinglePage]="hideOnSinglePage"
+          [nzNoResult]="noResult"
+          [nzPageSize]="pageSize"
+          [nzPageIndex]="pageIndex"
+          [nzFrontPagination]="frontPagination"
+>
+  <thead>
+  <tr>
+    <th>课程名称</th>
+    <th>课容量</th>
+    <th>课时量</th>
+    <th>上课时间</th>
+    <th>价格/课时</th>
+    <th>已购买人数</th>
+    <th>下架课程</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let class of classes">
+    <td>{{class?.name}}</td>
+    <td>{{class?.capacity}}</td>
+    <td>{{class?.endClassNum}}/{{class?.classNum}}</td>
+    <td>{{class?.classTime}}</td>
+    <td></td>
+    <td>
+      审核中
+    </td>
+    <td>
+      <button nz-button nzType="primary" nz-popconfirm nzTitle="是否上架该课程?" (nzOnConfirm)="auditPass()" (nzOnCancel)="auditCancel()" nzPlacement="topLeft">下架课程</button>
+    </td>
+  </tr>
+  </tbody>
+</nz-table>

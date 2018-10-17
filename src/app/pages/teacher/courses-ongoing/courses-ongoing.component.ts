@@ -8,7 +8,7 @@ import { NzMessageService } from 'ng-zorro-antd';
   styleUrls: ['./courses-ongoing.component.less']
 })
 export class CoursesOngoingComponent implements OnInit {
-  tableTitle = '课程审核';  // 表格头部名称
+  tableTitle = '正在进行的课程';  // 表格头部名称
   hideOnSinglePage = true; // 只有一页数据是否隐藏分页器
   noResult = '暂无数据';  // 无数据时显示内容
   pageSize = 30;  // 每页显示多少数据

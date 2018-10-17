@@ -1,3 +1,48 @@
-<p>
-  finance-income works!
-</p>
+<nz-breadcrumb>
+  <nz-breadcrumb-item>
+    <a [routerLink]="['../../']">首页</a>
+  </nz-breadcrumb-item>
+  <nz-breadcrumb-item>
+    总课时收入
+  </nz-breadcrumb-item>
+</nz-breadcrumb>
+
+<nz-divider></nz-divider>
+
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+  <nz-form-item style="height: 40px">
+    <nz-form-label style="line-height: 40px;text-align: center" [nzSpan]="3" [nzXs]="6" [nzSm]="4" [nzMd]="4" [nzLg]="3" >总课时量</nz-form-label>
+    <nz-form-control style="line-height: 40px;" [nzSpan]="21" [nzXs]="18" [nzSm]="20" [nzMd]="20" [nzLg]="21" >
+      <nz-input-number [nzDisabled]="true"></nz-input-number>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item style="height: 40px">
+    <nz-form-label style="line-height: 40px;text-align: center" [nzSpan]="3" [nzXs]="6" [nzSm]="4" [nzMd]="4" [nzLg]="3" >已上课时</nz-form-label>
+    <nz-form-control style="line-height: 40px;" [nzSpan]="21" [nzXs]="18" [nzSm]="20" [nzMd]="20" [nzLg]="21" >
+      <nz-input-number [nzDisabled]="true"></nz-input-number>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item style="height: 40px">
+    <nz-form-label style="line-height: 40px;text-align: center" [nzSpan]="3" [nzXs]="6" [nzSm]="4" [nzMd]="4" [nzLg]="3" >累计收入</nz-form-label>
+    <nz-form-control style="line-height: 40px;" [nzSpan]="21" [nzXs]="18" [nzSm]="20" [nzMd]="20" [nzLg]="21" >
+      <nz-input-number [nzDisabled]="true"></nz-input-number>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item style="height: 40px">
+    <nz-form-label style="line-height: 40px;text-align: center" [nzSpan]="3" [nzXs]="6" [nzSm]="4" [nzMd]="4" [nzLg]="3" >可提现金额</nz-form-label>
+    <nz-form-control style="line-height: 40px;" [nzSpan]="21" [nzXs]="18" [nzSm]="20" [nzMd]="20" [nzLg]="21" >
+      <nz-input-number [nzDisabled]="true"></nz-input-number>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item style="height: 40px">
+    <nz-form-label style="line-height: 40px;text-align: center" [nzSpan]="3" [nzXs]="6" [nzSm]="4" [nzMd]="4" [nzLg]="3" >提现金额</nz-form-label>
+    <nz-form-control style="line-height: 40px;" [nzSpan]="21" [nzXs]="18" [nzSm]="20" [nzMd]="20" [nzLg]="21" >
+      <nz-input-number ></nz-input-number>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control [nzOffset]="7" [nzSpan]="12">
+      <button nz-button nzType="primary" [disabled]="!validateForm.valid">确认提现</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>
