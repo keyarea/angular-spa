@@ -21,6 +21,9 @@ import { OrderRecordComponent } from './order-record/order-record.component';
 import { AdminService } from './admin.service';
 
 import { SwitchPipe } from '../../pipes/switch.pipe';
+import { IndexComponent } from './index/index.component';
+import { UserManagementComponent } from './user-management/user-management.component';
+import { RoleManagementComponent } from './role-management/role-management.component';
 
 @NgModule({
   imports: [
@@ -45,7 +48,10 @@ import { SwitchPipe } from '../../pipes/switch.pipe';
     SentMessagesComponent,
     WithdrawalRequestComponent,
     WithdrawalRecordComponent,
-    OrderRecordComponent
+    OrderRecordComponent,
+    IndexComponent,
+    UserManagementComponent,
+    RoleManagementComponent
   ],
   providers: [
    AdminService

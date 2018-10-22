@@ -15,6 +15,7 @@ export class AdminComponent implements OnInit {
   teacherIsOpen = false; // 老师菜单是否展开
   messageIsOpen = false; // 信息菜单是否展开
   withdrawalIsOpen = false; // 财务菜单是否展开
+  permissionsIsOpen = false; // 权限管理菜单是否展开
 
   constructor(
     private adminService: AdminService
@@ -33,6 +34,10 @@ export class AdminComponent implements OnInit {
 
     adminService.changeWithdrawalIsOpen$.subscribe(withdrawalIsOpen => {
       this.withdrawalIsOpen = <boolean>withdrawalIsOpen;
+    });
+
+    adminService.changePermissionsIsOpen$.subscribe(permissionsIsOpen => {
+      this.permissionsIsOpen = <boolean>permissionsIsOpen;
     });
 
 

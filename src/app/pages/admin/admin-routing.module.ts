@@ -43,6 +43,15 @@ import { WithdrawalRecordComponent } from './withdrawal-record/withdrawal-record
 // 订单记录
 import { OrderRecordComponent } from './order-record/order-record.component';
 
+// 人员管理
+import { UserManagementComponent } from './user-management/user-management.component';
+
+// 角色管理
+import { RoleManagementComponent } from './role-management/role-management.component';
+
+// 管理员首页
+import { IndexComponent } from './index/index.component';
+
 const routes: Routes = [
   { path: 'admin' , component: AdminComponent, children:
       [
@@ -84,6 +93,15 @@ const routes: Routes = [
         },
         {
           path: 'order/record', component: OrderRecordComponent
+        },
+        {
+          path: '', component: IndexComponent
+        },
+        {
+          path: 'user', component: UserManagementComponent
+        },
+        {
+          path: 'role', component: RoleManagementComponent
         }
       ]
   }

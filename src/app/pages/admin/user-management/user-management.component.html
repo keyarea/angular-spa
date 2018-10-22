@@ -1,0 +1,149 @@
+<nz-breadcrumb>
+  <nz-breadcrumb-item>
+    <a [routerLink]="['../../']">管理</a>
+  </nz-breadcrumb-item>
+  <nz-breadcrumb-item>
+    用户管理
+  </nz-breadcrumb-item>
+</nz-breadcrumb>
+
+<nz-divider></nz-divider>
+
+<button nz-button (click)="addRow()" nzType="primary">添加</button>
+<nz-table #basicTable [nzData]="users"
+          [nzScroll]="{x:'768px'}"
+          [nzTitle]="tableTitle"
+          [nzHideOnSinglePage]="hideOnSinglePage"
+          [nzNoResult]="noResult"
+          [nzPageSize]="pageSize"
+          [nzPageIndex]="pageIndex"
+          [nzFrontPagination]="frontPagination"
+>
+  <thead>
+  <tr>
+    <th>手机号</th>
+    <th>称呼</th>
+    <th>角色</th>
+    <th>状态</th>
+    <th>添加时间</th>
+    <th>操作</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of users">
+    <td>{{user?.phone}}</td>
+    <td>{{user?.name}}</td>
+    <td>{{user?.role}}</td>
+    <td>{{user?.status}}</td>
+    <td>{{user?.createTime}}</td>
+    <td>
+      <a (click)="editUser()">编辑</a>
+      <nz-divider nzType="vertical"></nz-divider>
+      <a>删除</a>
+    </td>
+  </tr>
+  </tbody>
+</nz-table>
+
+<nz-modal
+  nzMaskClosable="true"
+  [(nzVisible)]="isVisible"
+  [nzTitle]="modalTitle"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+  [nzOkText]="null"
+  [nzCancelText]="null"
+>
+  <form nz-form [formGroup]="modalForm" (ngSubmit)="submitForm()">
+    <nz-form-item>
+      <nz-form-label
+        style="text-align: center;line-height: 40px"
+        [nzMd]="4"
+        [nzSm]="4"
+        [nzXs]="5"
+      >用户名</nz-form-label>
+      <nz-form-control
+        [nzMd]="20"
+        [nzSm]="20"
+        [nzXs]="19"
+      >
+        <input nz-input type="text">
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label
+        style="text-align: center;line-height: 40px"
+        [nzMd]="4"
+        [nzSm]="4"
+        [nzXs]="5"
+      >角色</nz-form-label>
+      <nz-form-control
+        [nzMd]="20"
+        [nzSm]="20"
+        [nzXs]="19"
+      >
+        <nz-select style="width: 100%;"  (nzScrollToBottom)="loadMoreRole()" nzPlaceHolder="选择角色" nzAllowClear>
+          <nz-option *ngFor="let o of roleList" [nzValue]="o" [nzLabel]="o"></nz-option>
+          <nz-option *ngIf="roleIsLoading" nzDisabled nzCustomContent>
+            <i nz-icon type="loading" class="loading-icon"></i> 加载数据...
+          </nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label
+        style="text-align: center;line-height: 40px"
+        [nzMd]="4"
+        [nzSm]="4"
+        [nzXs]="5"
+      >密码</nz-form-label>
+      <nz-form-control
+        [nzMd]="20"
+        [nzSm]="20"
+        [nzXs]="19"
+      >
+        <input nz-input type="password">
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label
+        style="text-align: center;line-height: 40px"
+        [nzMd]="4"
+        [nzSm]="4"
+        [nzXs]="5"
+      >真实姓名</nz-form-label>
+      <nz-form-control
+        [nzMd]="20"
+        [nzSm]="20"
+        [nzXs]="19"
+      >
+        <input nz-input>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label
+        style="text-align: center;line-height: 40px"
+        [nzMd]="4"
+        [nzSm]="4"
+        [nzXs]="5"
+      >状态</nz-form-label>
+      <nz-form-control
+        [nzMd]="20"
+        [nzSm]="20"
+        [nzXs]="19"
+      >
+        <nz-switch  ></nz-switch> 禁用
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-control>
+        <button type="button" nz-button nzType="primary" (click)="submitForm()" nzBlock>提交</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</nz-modal>

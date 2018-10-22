@@ -58,6 +58,14 @@
             <li nz-menu-item routerLink="/admin/order/record" routerLinkActive="ant-menu-item-selected">订单记录</li>
           </ul>
         </li>
+        <li nz-submenu [nzOpen]="permissionsIsOpen">
+          <span title><i class="anticon anticon-user"></i>权限管理</span>
+          <ul>
+            <li nz-menu-item routerLink="/admin/user" routerLinkActive="ant-menu-item-selected">用户管理</li>
+            <li nz-menu-item routerLink="/admin/role" routerLinkActive="ant-menu-item-selected">角色管理</li>
+          </ul>
+        </li>
+
       </ul>
     </nz-sider>
     <nz-layout id="layoutContent">
